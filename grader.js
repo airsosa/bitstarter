@@ -41,7 +41,7 @@ var checkUrl = function(url, checksfile) {
   rest.get(url).on('complete', function(response) {
     if (response instanceof Error) {
       console.log('Error: ', response.message);
-      exit(1);
+      process.exit(1);
     } else {
       $ = cheerio.load(response);
       var checks = loadChecks(checksfile).sort();
