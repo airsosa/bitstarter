@@ -14,11 +14,8 @@
     <meta charset="utf-8">
     <title>Conzultrix Impact | Empowering Women and Children in Science Technology, Engineering, and Mathematics</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fbootstrap-combined.no-icons.min.css">
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css">
-    <link rel="stylesheet" href="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fsocial-buttons.css">
-    <script src="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fjquery.js"></script>
-    <script src="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fbootstrap.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
     <link href="http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,300,400,600,700,800" rel="stylesheet" type="text/css">
 
@@ -113,25 +110,24 @@
   <body>
     <!-- Mobile-friendly navbar adapted from example. -->
     <!-- http://twitter.github.io/bootstrap/examples/starter-template.html -->
-    <div class="navbar navrbar-inverse navbar-fixed-top">
-      <div class="navbar-inneer">
-	<div class="container">
-	  <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-	    <span class="icon-bar"></span>
-	    <span class="icon-bar"></span>
-	    <span class="icon-bar"></span>
-	  </button>
-	  <a class="brand" href="#">Bitstarter</a>
-	  <div class="nav-collapse collapse">
-	    <ul class="nav">
-	      <li class="active"><a href="#">Home</a></li>
-	      <li><a href="#about">About</a></li>
-	      <li><a href="#contact">Contact</a></li>
-	    </ul>
-	  </div><!--/ .nav-collapse -->
-	</div>
-      </div>
-    </div>
+    <header role="banner">
+      <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+  	       <div class="container">
+             <a class="navbar-brand" href="#">Conzultrix Impact</a>
+             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+             </button>
+
+  	        <div class="navbar-collapse collapse" id="navbarCollapse">
+  	           <ul class="navbar-nav mr-auto">
+  	              <li class="nav-item active"><a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a></li>
+  	              <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+  	              <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+  	          </ul>
+  	       </div><!--/ .navbar-collapse -->
+  	     </div>
+      </nav>
+    </header>
 
     <!-- We use row-fluid instide containers to achieve a resizable layout. -->
     <!-- blogs.endjin.com/2013/04/tips-for-implementing-responsive-designs-using-bootstrap/ -->
@@ -140,61 +136,63 @@
       <!-- Font and paired font of .heading/ .subheading and body from Google fonts -->
       <!-- www.google.com/fonts/speciment/Ubuntu -->
       <!-- www.google.com/fonts/specimen/Ubuntun#pairings -->
-      <div class="row-fluid heading">
-	<div class="span12">
-	  <h1>Conzultrix Impact</h1>
-	</div>
-      </div>
-      <div class="row-fluid subheading">
-	<div class="span12">
-	  <!-- Special typography from Bootstrap for lead paragraph. -->
-	  <!-- http://twitter.github.io/bootstrap/base-css.html#typography -->
-	  <p class="lead">Advancing Society by Empowering Women and Children in Science Technology, Engineering, and Mathematics. </p>
-	</div>
-      </div>
-      <div class="row-fluid pitch">
-	<div class="span5 offset1 video">
-	  <img class="img-polariod" src="http://placehold.it/480x300">
-	</div>
+      <div class="row heading">
+	       <div class="col-12">
+	          <h1>Conzultrix Impact</h1>
+	       </div>
+     </div>
+     <div class="row subheading">
+	      <div class="col-12">
+	         <!-- Special typography from Bootstrap for lead paragraph. -->
+	          <!-- http://twitter.github.io/bootstrap/base-css.html#typography -->
+	          <p class="lead">Advancing Society by Empowering Women and Children in Science Technology, Engineering, and Mathematics. </p>
+	     </div>
+    </div>
+    <div class="row pitch">
+	     <div class="col-lg video">
+	        <img class="img-polariod" src="http://placehold.it/480x300">
+	     </div>
 
-	<!-- We define a new 'actions' div to contain statistics, order, and share buttons. -->
-	<div class="span5 actions">
-	  <div class="span8 offset2">
-	    <div class="statistics">
-	      <div class="span4">
-		<!-- linediv-l and linediv-r give dividing lines that look
-                     different in horizontal and vertical layouts, illustrating
-                     media queries.  -->
-		<div class="linediv-l">
-		  <h3>1000</h3> <p>backers</p>
-		</div>
-	      </div>
-	      <div class="span4">
-		<div class=linediv-c">
-		  <h3>$6000</h3> <p>of $10,000</p>
-		</div>
-	      </div>
-	      <div class="span4">
-	        <div class="linediv-r">
-		  <h3>10</h3> <p>days left</p>
-	        </div>
-	      </div>
-	    </div>
-	  </div>
-	  <div class="span10 offset1">
+	    <!-- We define a new 'actions' div to contain statistics, order, and share buttons. -->
+	    <div class="col-lg actions">
+	       <div class="col-lg-8 offset-lg-2">
+	          <div class="statistics">
+              <div class="row">
+  	             <div class="col-lg-4">
+  		               <!-- linediv-l and linediv-r give dividing lines that look
+                       different in horizontal and vertical layouts, illustrating
+                       media queries.  -->
+  		               <div class="linediv-l">
+  		                   <h3>1000</h3> <p>backers</p>
+  		               </div>
+  	            </div>
+  	            <div class="col-lg-4">
+  		              <div class="linediv-c">
+  		                  <h3>$6000</h3> <p>of $10,000</p>
+  		              </div>
+  	           </div>
+  	          <div class="col-lg-4">
+  	             <div class="linediv-r">
+  		               <h3>10</h3> <p>days left</p>
+  	             </div>
+  	         </div>
+           </div>
+	       </div>
+	   </div>
+	  <div class="col-10 offset-1">
 	    <!-- Bootstrap progress bar -->
 	    <!-- http://twitter.github.io/bootstrap/components.html#progress -->
-	    <div class="thermometer progress active">
-	      <div class="bar bar-success" style="width: 60%;"></div>
-	      <div class="bar bar-warinig" style="width: 40%;"></div>
+	    <div class="thermometer progress active" style="height: 20px;">
+        <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 60%"
+        aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
 	    </div>
 	  </div>
-	  <div class="span6 offset3 order">
+	  <div class="col-6 offset-3 order">
 	    <!-- Standard Bootstrap button.  -->
 	    <!-- http://twitter.github.io/bootstrap/base-css.html#buttons -->
-	    <button class="btn btn-success btn-large">Preorder</button>
+	    <button class="btn btn-success btn-lg">Preorder</button>
 	  </div>
-	  <div class="span8 offset2 social">
+	  <div class="col-8 offset-2 social">
 	    <!-- Social buttons are not included in default Bootstrap. -->
 	    <!-- See: http://noizwaves.github.io/bootstrap-social-buttons -->
 	    <!-- <button class="btn btn-twitter"><i class="icon-twitter"></i> | Twitter</button>
@@ -202,122 +200,131 @@
       <div class="addthis_inline_share_toolbox"></div>
 	  </div>
 	</div>
-      </div>
+ </div>
 
       <!-- Beyond this part the marketing copy begins.  -->
       <!-- https://developer.mozilla.org/en-US/docs/web/CSS/text-align -->
       <!-- http://twitter.github.io/bootstrap/base-css.html#images -->
       <!-- http://placehold.it -->
-      <div class="row-fluid section1">
-	<div class="span5 offset1 asset">
-	  <!-- <img class="img-polaroid" src="http://placehold.it/480x300"> -->
-    <img class="img-polaroid" src="https://i.imgur.com/tQa7AP6.jpg">
-	</div>
-	<div class="span5 copy">
-	  <p>
-	    Conzultrix Impact is a project that aims to sow the seeds of technological advancement through the participation of women and children by empowering them in the fields of Computer programming, Design, Engineering, and Business, through mentorship and training. This would enable our target develop their critical thinking skills and build their leadership capacity.
-	  </p>
-	</div>
-      </div>
+  <div class="row section1 jumbotron">
+	  <div class="col-lg-5 offset-1 asset">
+	     <!-- <img class="img-polaroid" src="http://placehold.it/480x300"> -->
+       <img class="img-polaroid" src="https://i.imgur.com/tQa7AP6.jpg">
+	  </div>
+	  <div class="col-lg-5 copy">
+	     <p>
+	        Conzultrix Impact is a project that aims to sow the seeds of technological advancement through the participation of women and children by empowering them in the fields of Computer programming, Design, Engineering, and Business, through mentorship and training. This would enable our target develop their critical thinking skills and build their leadership capacity.
+	     </p>
+	  </div>
+  </div>
 
-      <div class="row-fluid section2">
-	<div class="span5 offset1 copy copy-right">
-	  <h2>What are we planning to make</h2>
-<p>
+  <div class="row section2">
+	   <div class="offset-1 copy copy-right">
+	      <h2>What are we planning to make</h2>
+        <p>
 We will be setting up a training facility with two classrooms and a design/prototyping studio.
 The first class would be set up for children between the ages of 9 to 18 to learn computer programming using the Raspberry PI. The device, being a simple board would provide the kids with the thrill of seeing the internal mechanics of the computer while using it as a tool to solve real live problems. The students would be selected from local secondary schools (mostly public schools) and the training would be at no cost to the participants. Promising students would be provided with their own Raspberry PI kit for use at home.
-</p>
-<p>
+      </p>
+      <p>
 The second class would be a full scale training facility to cover higher level courses such as software development, computer aided design, machine learning, computer aided manufacture, tool design, business development, design, and design thinking. The goal is to develop a strong technological base upon that would ultimately drive innovation in the society at large. The courses would be taken at a fee; however, 2 seats would be reserved for women who would take the classes at no cost. Charging for these courses would enable us sustain the free classes for the children.
-</p>
-<p>
-The Design studio would be fitted with work benches and prototyping materials such as Lego blocks, clay, foam core, cardboard, and 3D printer. Young children from the age of 5 would be allowed to express their creativity while older students would use the studio to bring their ideas to life.
-</p>
+      </p>
+      <p>
+The Design studio will be fitted with work benches and prototyping materials such as Lego blocks, clay, foam core, cardboard, and 3D printer. Young children from the age of 5 would be allowed to express their creativity while older students would use the studio to bring their ideas to life.
+      </p>
 
 
-<h2>Where did the Project come from</h2>
-<p>
+      <h2>Where did the Project come from</h2>
+      <p>
 The effect of poverty is palpable on the streets of Nigeria and women and children are the most vulnerable in the society. Education has always been a means to liberate the minds and lives of the society. However, with poorly equipped public school, undertrained teachers, little or no access to books and internet, the average Nigeria child faces a bleak future. But we believe in a brighter future and we believe we can make it happen.
-</p>
-<p>
+      </p>
+      <p>
 The challenge of providing targeted and relevant education cannot be left to the government alone. Besides, government solutions are often met with inefficiencies in implementation.
-</p>
-<p>
+      </p>
+      <p>
 Providing women with relevant skills and experience would enable them create successful business from building innovative solution. A popular African say goes: If you empower a woman you empower a nation.
 By exposing children today to computer programming skills, we are building a more effective workforce for the future. Programming skills don't just teach programming, they enhance our ability to think about creating solutions. Growing up with these critical thinking skills is about the greatest gift we can give to these kids and the society at large.
-</p>
+      </p>
 
 
-<h2>What is our plan and schedule</h2>
-<p>
+      <h2>What is our plan and schedule</h2>
+      <p>
 We are looking a 3 year execution period during which we will train 1,000 secondary school students computer programming using the Raspberry PI. The classes would run in batches of 20 students per class. At least 100 Raspberry PI devices would be provided to promising students to consolidate their learning at home.
-</p>
-<p>
+      </p>
+      <p>
 We also intend to provide free computer programming training to 100 secondary school teachers while encouraging them to teach their students; possibly in science clubs.
 It is our goal to advocate and provide support for the expansion of the current secondary school computer science curriculum to include computer programming so as to make critical thinking skills more mainstream.
-</p>
-<p>
+      </p>
+      <p>
 Our reach would be broadened by hosting events, seminars, and workshops at secondary schools and institutions of higher learning to keep them informed on trends to guide them in their career choices.
 We will be bringing design to the mainstream by providing design trainings from age 5 to adulthood.
 Internship opportunity would be provided for university students where they would they would be exposed to software development teams and methods.
-</p>
-<p>Beyond the 3 year period, we shall sustain the project but without the need for external funding.</p>
+      </p>
+      <p>Beyond the 3 year period, we shall sustain the project but without the need for external funding.</p>
 
 
-<h2>What is the budget</h2>
+      <h2>What is the budget</h2>
 
-<p>We are hoping to raise the equivalent of $55,000 to cover equipments, facilities, furnishing, utility, security, insurance, and basic salary for 4 staff for 3 years.</p>
+      <p>We are hoping to raise the equivalent of $55,000 to cover equipments, facilities, furnishing, utility, security, insurance, and basic salary for 4 staff for 3 years.</p>
 
-	</div>
-	<div class="span5 asset">
-	  <img class="img-polaroid" src="http://placehold.it/480x300">
-	</div>
-      </div>
+	  </div>
+	  <div class="asset offset-1">
+	     <img class="img-polaroid" src="http://placehold.it/480x300">
+	  </div>
+  </div>
 
       <!-- for the FAQ, we introduce a little bit of JS, using the accordion.  -->
       <!-- This brings in jquery.js and bootstrap.js as dependencies.  -->
       <!-- http://twitter.github.io/bootstrap/javascript.html#collapse -->
-      <div class="row-fluid faq">
-	<div class="span10 offset1">
-	  <h3>FAQ</h3>
-	  <div class="accordion" id="accordion2">
-	    <div class="accordion-group">
-	      <div class="accordion-heading">
-		<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-		  What does FAQ stand for?
-		</a>
-	      </div>
-	      <div id="collapseOne" class="accordion-body collapse">
-		<div class="accordion-inner">
-		  Frequently Asked Question.
-		</div>
-	      </div>
-	    </div>
-	    <div class="accordion-group">
-	      <div class="accordion-heading">
-		<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-		  What's a Frequently Asked Question?
-		</a>
-	      </div>
-	      <div id="collapseTwo" class="accordion-body collapse">
-		<div class="accordion-inner">
-		  A question which is commonly asked by users.
-		</div>
-	      </div>
-	    </div>
-	  </div>
-	</div>
+  <div class="row faq">
+	   <div class="col-10 offset-1">
+	      <h3>FAQ</h3>
+        <div class="accordion" id="accordionExample">
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    What does FAQ stand for?
+                </button>
+              </h5>
+            </div>
 
-      </div>
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div class="card-body">
+                Frequently Asked Question.
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header" id="headingTwo">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  What's a Frequently Asked Question?
+                </button>
+              </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+              <div class="card-body">
+                A question which is commonly asked by users.
+              </div>
+            </div>
+          </div>
+        </div>
+	     </div>
+
+     </div>
 
       <!-- Not crucial, but we put this under a CC by-SA 3.0 license. -->
       <!-- http://creativecommons.org/licenses/ -->
-      <div class="row-fluid footer">
-	<div class="span12">
-	  <p>This work is licensed under the <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC By-SA 3.0</a>, without all the cruft that would otherwise be put at the bottom of the page.</p>
-	</div>
-      </div>
-    </div>
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b3f9a6c7a0481b9"></script>
-  </body>
+  <footer class="row footer">
+	   <div class="col-12">
+	      <p>This work is licensed under the <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC By-SA 3.0</a>, without all the cruft that would otherwise be put at the bottom of the page.</p>
+	   </div>
+  </footer>
+ </div>
+ <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b3f9a6c7a0481b9"></script>
+ <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+</body>
 </html>
