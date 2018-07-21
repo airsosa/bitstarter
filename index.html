@@ -22,7 +22,7 @@
     <style type="text/css">
 
       /* Large desktop */
-      @media (min-width: 980px) {
+      @media (min-width: 992px) {
         body {
           padding-top: 60px;
         }
@@ -35,7 +35,7 @@
       }
 
       /* Landscape phones and down */
-      @media (max-width: 480px) {
+      @media (max-width: 991px) {
         .copy {
           padding: 2.5% 10%;
         }
@@ -55,16 +55,13 @@
       }
       .heading, subheading {
         font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
-        text-align: center;
       }
-      p.lead {
-        padding-top: 1.5%;
-        font-size: 24px;
-        line-height: 30px;
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
       }
-      p {
-        font-size: 18px;
-        line-height: 24px;
+      img {
+        max-width: 100%;
+        height: auto;
       }
 
       /* Video pitch and Action */
@@ -201,25 +198,32 @@
 	  </div>
 	</div>
  </div>
+</div>
 
       <!-- Beyond this part the marketing copy begins.  -->
       <!-- https://developer.mozilla.org/en-US/docs/web/CSS/text-align -->
       <!-- http://twitter.github.io/bootstrap/base-css.html#images -->
       <!-- http://placehold.it -->
-  <div class="row section1 jumbotron">
-	  <div class="col-lg-5 offset-1 asset">
-	     <!-- <img class="img-polaroid" src="http://placehold.it/480x300"> -->
-       <img class="img-polaroid" src="https://i.imgur.com/tQa7AP6.jpg">
-	  </div>
-	  <div class="col-lg-5 copy">
-	     <p>
-	        Conzultrix Impact is a project that aims to sow the seeds of technological advancement through the participation of women and children by empowering them in the fields of Computer programming, Design, Engineering, and Business, through mentorship and training. This would enable our target develop their critical thinking skills and build their leadership capacity.
-	     </p>
-	  </div>
+  <div class="row section1 jumbotron jumbotron-fluid">
+    <div class="container">
+      <div class="row">
+    	  <div class="col-lg asset">
+    	     <!-- <img class="img-polaroid" src="http://placehold.it/480x300"> -->
+           <img class="img-polaroid" src="https://i.imgur.com/tQa7AP6.jpg">
+           <!-- <img class="img-polaroid" alt="Raspberry Pi3" src="https://i.imgur.com/p8IdvF7l.png"> -->
+    	  </div>
+    	  <div class="col-lg copy">
+    	     <p class="lead">
+    	        Conzultrix Impact is a project that aims to sow the seeds of technological advancement through the participation of women and children by empowering them in the fields of Computer programming, Design, Engineering, and Business, through mentorship and training. This would enable our target develop their critical thinking skills and build their leadership capacity.
+    	     </p>
+    	  </div>
+      </div>
+    </div>
   </div>
 
+<div class="container">
   <div class="row section2">
-	   <div class="offset-1 copy copy-right">
+	   <div class="copy copy-right">
 	      <h2>What are we planning to make</h2>
         <p>
 We will be setting up a training facility with two classrooms and a design/prototyping studio.
@@ -267,7 +271,7 @@ Internship opportunity would be provided for university students where they woul
       <p>We are hoping to raise the equivalent of $55,000 to cover equipments, facilities, furnishing, utility, security, insurance, and basic salary for 4 staff for 3 years.</p>
 
 	  </div>
-	  <div class="asset offset-1">
+	  <div class="asset">
 	     <img class="img-polaroid" src="http://placehold.it/480x300">
 	  </div>
   </div>
@@ -276,7 +280,7 @@ Internship opportunity would be provided for university students where they woul
       <!-- This brings in jquery.js and bootstrap.js as dependencies.  -->
       <!-- http://twitter.github.io/bootstrap/javascript.html#collapse -->
   <div class="row faq">
-	   <div class="col-10 offset-1">
+	   <div class="col-10">
 	      <h3>FAQ</h3>
         <div class="accordion" id="accordionExample">
           <div class="card">
