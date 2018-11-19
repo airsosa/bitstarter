@@ -13,9 +13,25 @@
 		.when('/contact', {
 			templateUrl: 'app/views/contact.html'
 		})
+		.when('/support', {
+			templateUrl: 'app/views/support.html',
+			controler: 'SupportCtrl'
+		});
 	}]);
 
 	app.controller('HomeCtrl', [function() {
 		console.log('This is the HomeCtrl');
+	}])
+	.controller('SupportCtrl', ['$scope', '$http', function($scope, $http) {
+		$http.get('/api/usercountry').then(function(res) {
+			$scope.country_code = res.data.country_code ? res.data.country_code : 'NG';
+			if ($scope.country_code !== 'NG') $scope.country_code = 'UN';
+		}, function(err) {
+			$scope.country_code = 'NG';
+		});
+		$http.get('/api/locale').then(function(res) {
+			$scope.locale = res.data;
+		})
+
 	}]);
 })();

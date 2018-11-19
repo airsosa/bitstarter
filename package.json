@@ -7,10 +7,12 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "express": "^4.13.3"
+    "express": "^4.16.0",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.5"
   },
   "engines": {
-    "node": "4.8.4"
+    "node": "8.11.4"
   },
   "repository": {
     "type": "git",
@@ -25,5 +27,8 @@
   "contributors": [
     "Zeke Sikelianos <zeke@sikelianos.com> (http://zeke.sikelianos.com)"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "dotenv": "^6.1.0"
+  }
 }
