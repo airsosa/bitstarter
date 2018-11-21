@@ -24,14 +24,14 @@
   		</div>
   		<div class="form-group">
   			<label for="supportEmail" class="sr-only">Email</label>
-  			<input type="email" class="form-control" name="email" placeholder="Enter email" id="supportEmail">
+  			<input type="email" class="form-control" name="email" placeholder="Enter email" id="supportEmail" required>
   		</div>
   		<hr>
   		<div class="donation-box border p-3">
   			<h2 class="locale-intent">I would like to contribute: </h2>
-  			<ul class="list-inline amount-list">
-  					<li class="list-inline-item mb-2" ng-repeat="amount in locale.NG.amounts"><button class="btn btn-outline-secondary btn-small" data-amount="{{ amount }}">{{ amount | currency : "&#8358;" : 0 }}</button></li>
-  					<li class="list-inline-item mb-2"><button class="btn btn-outline-secondary btn-small">other amount</button></li>
+  			<ul class="list-inline" id="amount-list">
+  					<li class="list-inline-item mb-2" ng-repeat="amount in locale.NG.amounts"><button class="btn btn-outline-secondary" data-amount="{{ amount }}">{{ amount | currency : "&#8358;" : 0 }}</button></li>
+  					<li class="list-inline-item mb-2"><button class="btn btn-outline-secondary">other amount</button></li>
   			</ul>
   			<div class="form-inline">
   			<div class="form-group">
@@ -40,7 +40,7 @@
   					<div class="input-group-prepend">
   						<span class="input-group-text form-control-lg">&#8358;</span>
   					</div>
-  					<input type="number" name="amount" class="form-control form-control-lg" id="donationAmount" placeholder="Enter Amount">
+  					<input type="number" name="amount" class="form-control form-control-lg" id="donationAmount" placeholder="Enter Amount" min="1" required>
   				</div>
   			</div>
   			<button type="submit" class="btn btn-success ml-1 btn-lg">DONATE</button>
@@ -52,3 +52,13 @@
 </div>
 </div>
 </div>
+<script type="text/javascript">
+	var btns = document.querySelector('#amount-list');
+	var dnt = document.querySelector('#donationAmount');
+	btns.addEventListener('click', function(event) {
+		dnt.value = '';
+		if (event.target.hasAttribute('data-amount')) dnt.value = parseInt(event.target.getAttribute('data-amount'));
+		dnt.focus();
+		event.preventDefault();
+	});
+</script>
