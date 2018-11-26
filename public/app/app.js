@@ -31,7 +31,13 @@
 		});
 		$http.get('/api/locale').then(function(res) {
 			$scope.locale = res.data;
-		})
+		});
+		$scope.enterAmount = function(event) {
+			$scope.donationamount = '';
+			if (event.target.hasAttribute('data-amount')) 
+				$scope.donationamount = parseInt(event.target.getAttribute('data-amount'));
+			document.querySelector('#donationAmount').focus();
+		};
 
 	}]);
 })();

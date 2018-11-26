@@ -7,29 +7,29 @@
 	<p class="lead">Contributors shall receive quarterly reports, for a 3 year period, detailing activities, activements, and personal user stories form beneficiaries of the project. Photographs and videos would also be shared as well as personalised thank you messages from those you have touched</p>
 </div>
 <div class="support-form">
-	<form>
+	<form name="donationForm" novalidate>
   		<div class="form-row">
     		<div class="col">
     			<div class="form-group">
     				<label for="supportFirstname" class="sr-only">Frist Name</label>
-      			<input type="text" class="form-control" placeholder="First name" name="firstname" id="supportFirstname" autofocus>
+      			<input type="text" class="form-control" placeholder="First name" name="firstname" id="supportFirstname" ng-model="fname" autofocus>
     			</div>
     		</div>
     		<div class="col">
     			<div class="form-group">
     				<label for="supportLastname" class="sr-only">Last Name</label>
-      			<input type="text" class="form-control" placeholder="Last name" name="lastname" id="supportLastname">
+      			<input type="text" class="form-control" placeholder="Last name" name="lastname" id="supportLastname" ng-model="lname">
       		</div>
     		</div>
   		</div>
   		<div class="form-group">
   			<label for="supportEmail" class="sr-only">Email</label>
-  			<input type="email" class="form-control" name="email" placeholder="Enter email" id="supportEmail" required>
+  			<input type="email" class="form-control" name="email" placeholder="Enter email" id="supportEmail" ng-model="email" required>
   		</div>
   		<hr>
   		<div class="donation-box border p-3">
   			<h2 class="locale-intent">I would like to contribute: </h2>
-  			<ul class="list-inline" id="amount-list">
+  			<ul class="list-inline" id="amount-list" ng-click="enterAmount($event)">
   					<li class="list-inline-item mb-2" ng-repeat="amount in locale.NG.amounts"><button class="btn btn-outline-secondary" data-amount="{{ amount }}">{{ amount | currency : "&#8358;" : 0 }}</button></li>
   					<li class="list-inline-item mb-2"><button class="btn btn-outline-secondary">other amount</button></li>
   			</ul>
@@ -40,25 +40,25 @@
   					<div class="input-group-prepend">
   						<span class="input-group-text form-control-lg">&#8358;</span>
   					</div>
-  					<input type="number" name="amount" class="form-control form-control-lg" id="donationAmount" placeholder="Enter Amount" min="1" required>
+  					<input type="number" name="amount" class="form-control form-control-lg" id="donationAmount" placeholder="Enter Amount" min="1" string-to-number ng-model="donationamount" required>
   				</div>
   			</div>
   			<button type="submit" class="btn btn-success ml-1 btn-lg">DONATE</button>
   		</div>
   	</div>
   		
-
+  	<div>Donation form is {{donationForm.$valid}}</div>
 	</form>
 </div>
 </div>
 </div>
 <script type="text/javascript">
-	var btns = document.querySelector('#amount-list');
+	/*var btns = document.querySelector('#amount-list');
 	var dnt = document.querySelector('#donationAmount');
 	btns.addEventListener('click', function(event) {
 		dnt.value = '';
 		if (event.target.hasAttribute('data-amount')) dnt.value = parseInt(event.target.getAttribute('data-amount'));
 		dnt.focus();
 		event.preventDefault();
-	});
+	});*/
 </script>
