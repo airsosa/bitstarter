@@ -34,10 +34,36 @@
 		});
 		$scope.enterAmount = function(event) {
 			$scope.donationamount = '';
-			if (event.target.hasAttribute('data-amount')) 
+			if (event.target.hasAttribute('data-amount'))
 				$scope.donationamount = parseInt(event.target.getAttribute('data-amount'));
 			document.querySelector('#donationAmount').focus();
+			event.preventDefault();
 		};
+
+		$scope.processDonation = function() {
+			var handler = PaystackPop.setup({
+      key: 'pk_test_d6b77c0b2c69324c5c80e54a5cefc4dc1458168f',
+      email: $scope.email,
+      amount: $scope.donationamount * 100,
+      ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+      metadata: {
+         custom_fields: [
+            {
+                display_name: "Full Name",
+                variable_name: "full_name",
+                value: $scope.fname + ' ' + $scope.lname
+            }
+         ]
+      },
+      callback: function(response){
+          alert('success. transaction ref is ' + response.reference);
+      },
+      onClose: function(){
+          alert('window closed');
+      }
+    });
+    handler.openIframe();
+	};
 
 	}]);
 })();

@@ -7,7 +7,8 @@
 	<p class="lead">Contributors shall receive quarterly reports, for a 3 year period, detailing activities, activements, and personal user stories form beneficiaries of the project. Photographs and videos would also be shared as well as personalised thank you messages from those you have touched</p>
 </div>
 <div class="support-form">
-	<form name="donationForm" novalidate>
+	<form name="donationForm" ng-submit="donationForm.$valid && processDonation()" novalidate>
+
   		<div class="form-row">
     		<div class="col">
     			<div class="form-group">
@@ -46,7 +47,7 @@
   			<button type="submit" class="btn btn-success ml-1 btn-lg">DONATE</button>
   		</div>
   	</div>
-  		
+
   	<div>Donation form is {{donationForm.$valid}}</div>
 	</form>
 </div>
