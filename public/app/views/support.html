@@ -27,9 +27,10 @@
   		</div>
   		<hr>
   		<div class="donation-box border p-3">
+				<button class="btn btn-info btn-sm" ng-click="toggleCur($event, country_code)">{{ locale[country_code].alt }}</button>
   			<h2 class="locale-intent">I would like to contribute: </h2>
-				<donation-ng ng-show="country_code === 'NG'"></donation-ng>
-				<donation-un ng-show="country_code === 'UN'"></donation-ng>
+				<donation-ng ng-if="country_code === 'NG'"></donation-ng>
+				<donation-un ng-if="country_code === 'UN'"></donation-ng>
   	</div>
 
   	<div>Donation form is {{donationForm.$valid}}</div>

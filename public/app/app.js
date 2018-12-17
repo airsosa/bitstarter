@@ -48,9 +48,16 @@
 			$scope.donationamount = '';
 			if (event.target.hasAttribute('data-amount'))
 				$scope.donationamount = parseInt(event.target.getAttribute('data-amount'));
-			document.querySelector('#donationAmountNG').focus();
-			document.querySelector('#donationAmountUN').focus();
+			document.querySelector('#donationAmount').focus();
 			event.preventDefault();
+		};
+		$scope.toggleCur = function(event, code) {
+			event.preventDefault();
+			$scope.donationamount = '';
+			if (code == 'NG')
+				$scope.country_code = 'UN';
+			else
+				$scope.country_code = 'NG';
 		};
 
 		$scope.processDonation = function() {
