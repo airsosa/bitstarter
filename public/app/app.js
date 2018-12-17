@@ -18,6 +18,18 @@
 			controler: 'SupportCtrl'
 		});
 	}]);
+	app.directive('donationNg', function() {
+		return {
+			restrict: 'E',
+			templateUrl: 'app/views/donation-ng.html'
+		};
+	})
+	.directive('donationUn', function() {
+		return {
+			restrict: 'E',
+			templateUrl: 'app/views/donation-un.html'
+		};
+	});
 
 	app.controller('HomeCtrl', [function() {
 		console.log('This is the HomeCtrl');
@@ -36,7 +48,8 @@
 			$scope.donationamount = '';
 			if (event.target.hasAttribute('data-amount'))
 				$scope.donationamount = parseInt(event.target.getAttribute('data-amount'));
-			document.querySelector('#donationAmount').focus();
+			document.querySelector('#donationAmountNG').focus();
+			document.querySelector('#donationAmountUN').focus();
 			event.preventDefault();
 		};
 
