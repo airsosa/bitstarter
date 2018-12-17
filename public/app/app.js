@@ -45,6 +45,7 @@
       key: 'pk_test_d6b77c0b2c69324c5c80e54a5cefc4dc1458168f',
       email: $scope.email,
       amount: $scope.donationamount * 100,
+			currency: $scope.locale[$scope.country_code].currency,
       ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
       metadata: {
          custom_fields: [
