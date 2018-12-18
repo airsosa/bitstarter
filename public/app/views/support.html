@@ -26,9 +26,17 @@
   			<input type="email" class="form-control" name="email" placeholder="Enter email" id="supportEmail" ng-model="email" required>
   		</div>
   		<hr>
-  		<div class="donation-box border p-3">
-				<button class="btn btn-info btn-sm" ng-click="toggleCur($event, country_code)">{{ locale[country_code].alt }}</button>
-  			<h2 class="locale-intent">I would like to contribute: </h2>
+  		<div class="donation-box border border-secondary p-3">
+				<div class="row">
+					<div class="col-lg-4 order-lg-last">
+						<button class="btn btn-info btn-sm mb-3 float-right" ng-click="toggleCur($event, country_code)">
+							{{ locale[country_code].alt }}
+						</button>
+					</div>
+					<div class="col-lg-8">
+						<h2 class="locale-intent">I would like to contribute: </h2>
+					</div>
+				</div>
 				<donation-ng ng-if="country_code === 'NG'"></donation-ng>
 				<donation-un ng-if="country_code === 'UN'"></donation-ng>
   	</div>

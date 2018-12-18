@@ -3,12 +3,12 @@
 		"currency" : "NGN",
 		"amounts" : [500, 1000, 2000, 5000, 10000, 20000, 50000],
 		"symbol" : "&#8358;",
-		"alt": "Contribute in USD"
+		"alt": "Donate in USD?"
 	},
 	"UN" : {
 		"currency" : "USD",
 		"amounts" : [5, 10, 25, 50, 100, 200, 500, 1000],
 		"symbol" : "$",
-		"alt": "Contribute in NGN"
+		"alt": "Donate in NGN?"
 	}
 }
