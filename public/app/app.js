@@ -32,7 +32,7 @@
 	});
 
 	app.controller('HomeCtrl', [function() {
-		console.log('This is the HomeCtrl');
+		//console.log('This is the HomeCtrl');
 	}])
 	.controller('SupportCtrl', ['$scope', '$http', function($scope, $http) {
 		$http.get('/api/usercountry').then(function(res) {
