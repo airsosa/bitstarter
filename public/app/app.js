@@ -21,13 +21,13 @@
 	app.directive('donationNg', function() {
 		return {
 			restrict: 'E',
-			templateUrl: 'app/views/donation-ng.html'
+			templateUrl: 'app/views/donation-ng.html',
 		};
 	})
 	.directive('donationUn', function() {
 		return {
 			restrict: 'E',
-			templateUrl: 'app/views/donation-un.html'
+			templateUrl: 'app/views/donation-un.html',
 		};
 	});
 
@@ -61,6 +61,13 @@
 		};
 
 		$scope.processDonation = function() {
+			var data = {
+				name: $scope.fname,
+				email: $scope.email,
+				amount: $scope.donationamount
+			};
+
+			console.log(data);
 			var handler = PaystackPop.setup({
       key: 'pk_test_d6b77c0b2c69324c5c80e54a5cefc4dc1458168f',
       email: $scope.email,
