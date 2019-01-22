@@ -61,30 +61,44 @@
 		};
 
 		$scope.processDonation = function() {
-			var data = {
-				name: $scope.fname,
+
+			var details = {
+				fullname: $scope.fname + ' ' + $scope.lname,
+				amount: $scope.donationamount * 100,
+				currency: $scope.locale[$scope.country_code].currency,
 				email: $scope.email,
-				amount: $scope.donationamount
+				reference: ''+Math.floor((Math.random() * 1000000000) + 1),
+				timestamp: new Date().getTime(),
+				country: $scope.country_code
 			};
 
-			console.log(data);
+			//console.log(JSON.stringify(data));
 			var handler = PaystackPop.setup({
       key: 'pk_test_d6b77c0b2c69324c5c80e54a5cefc4dc1458168f',
-      email: $scope.email,
-      amount: $scope.donationamount * 100,
-			currency: $scope.locale[$scope.country_code].currency,
-      ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+      email: details['email'],
+      amount: details['amount'],
+			currency: details['currency'],
+      ref: details['reference'],
       metadata: {
          custom_fields: [
             {
                 display_name: "Full Name",
                 variable_name: "full_name",
-                value: $scope.fname + ' ' + $scope.lname
+                value: details['fullname']
             }
          ]
       },
       callback: function(response){
-          alert('success. transaction ref is ' + response.reference);
+				console.log(JSON.stringify(details));
+				$http.post('/api/contribution', JSON.stringify(details)).then(function(res) {
+					console.log('success');
+					console.log(res.data);
+					//alert('success. transaction ref is ' + response.reference);
+					// redirect to thankyou page
+				}, function(err) {
+					console.log(err);
+				});
+
       },
       onClose: function(){
           alert('window closed');
