@@ -1,5 +1,5 @@
 <ul class="list-inline" id="amount-list" ng-click="enterAmount($event)">
-    <li class="list-inline-item mb-2" ng-repeat="amount in locale[country_code].amounts"><button class="btn btn-outline-secondary" data-amount="{{ amount }}">
+    <li class="list-inline-item mb-2" ng-repeat="amount in resource.locale[resource.country_code].amounts"><button class="btn btn-outline-secondary" data-amount="{{ amount }}">
       {{ amount | currency : "&#8358;" : 0 }}
     </button></li>
     <li class="list-inline-item mb-2"><button class="btn btn-outline-secondary">other amount</button></li>
@@ -16,3 +16,5 @@
 </div>
 <button type="submit" class="btn btn-success ml-1 btn-lg">DONATE</button>
 </div>
+
+{{ resource.locale[country_code] }}

@@ -31,19 +31,65 @@
 		};
 	});
 
-	app.controller('HomeCtrl', [function() {
-		//console.log('This is the HomeCtrl');
+	app.factory('resource', ['$http', function($http) {
+		return {
+			message: "I am data froma a service",
+			getLocale: function() {
+				return $http.get('/api/locale');
+			},
+			getCountry: function() {
+				return $http.get('/api/usercountry');
+			}
+		};
+	}]);
+
+	app.controller('HomeCtrl', ['resource', '$scope', function(resource, $scope) {
+		console.log('This is the HomeCtrl');
+		$scope.resource = resource;
+		if (!$scope.resource.hasOwnProperty('locale')) {
+			$scope.resource.getLocale().then(
+				function(res) {
+					$scope.resource.locale = res.data;
+				});
+		}
+
+		if (!$scope.resource.hasOwnProperty('country_code')) {
+			$scope.resource.getCountry().then(
+				function(res) {
+					$scope.resource.country_code = res.data.country_code ? res.data.country_code : 'NG';
+					$scope.resource.country_name = res.data.country_name ? res.data.country_name : 'Unknown';
+					if ($scope.resource.country_code !== 'NG') $scope.resource.country_code = 'UN';
+				}, function(err) {
+					$scope.resource.country_code = 'NG';
+					$scope.resource.country_name = 'Unknown';
+				});
+		}
+
+
 	}])
-	.controller('SupportCtrl', ['$scope', '$http', function($scope, $http) {
-		$http.get('/api/usercountry').then(function(res) {
-			$scope.country_code = res.data.country_code ? res.data.country_code : 'NG';
-			if ($scope.country_code !== 'NG') $scope.country_code = 'UN';
-		}, function(err) {
-			$scope.country_code = 'NG';
-		});
-		$http.get('/api/locale').then(function(res) {
-			$scope.locale = res.data;
-		});
+	.controller('SupportCtrl', ['$scope', '$http', 'resource', function($scope, $http, resource) {
+		console.log("This is support controller");
+		$scope.resource = resource;
+		if (!$scope.resource.hasOwnProperty('locale')) {
+			$scope.resource.getLocale().then(
+				function(res) {
+					$scope.resource.locale = res.data;
+				}
+			);
+		}
+
+		if (!$scope.resource.hasOwnProperty('country_code')) {
+			$scope.resource.getCountry().then(
+				function(res) {
+					$scope.resource.country_code = res.data.country_code ? res.data.country_code : 'NG';
+					$scope.resource.country_name = res.data.country_name ? res.data.country_name : 'Unknown';
+					if ($scope.resource.country_code !== 'NG') $scope.resource.country_code = 'UN';
+				}, function(err) {
+					$scope.resource.country_code = 'NG';
+					$scope.resource.country_name = 'Unknown';
+				});
+		}
+
 		$scope.enterAmount = function(event) {
 			$scope.donationamount = '';
 			if (event.target.hasAttribute('data-amount'))
@@ -55,9 +101,9 @@
 			event.preventDefault();
 			$scope.donationamount = '';
 			if (code == 'NG')
-				$scope.country_code = 'UN';
+				$scope.resource.country_code = 'UN';
 			else
-				$scope.country_code = 'NG';
+				$scope.resource.country_code = 'NG';
 		};
 
 		$scope.processDonation = function() {
@@ -65,14 +111,13 @@
 			var details = {
 				fullname: $scope.fname + ' ' + $scope.lname,
 				amount: $scope.donationamount * 100,
-				currency: $scope.locale[$scope.country_code].currency,
+				currency: $scope.resource.locale[$scope.resource.country_code].currency,
 				email: $scope.email,
 				reference: ''+Math.floor((Math.random() * 1000000000) + 1),
-				timestamp: new Date().getTime(),
-				country: $scope.country_code
+				country: $scope.resource.country_name
 			};
 
-			//console.log(JSON.stringify(data));
+			console.log(JSON.stringify(details));
 			var handler = PaystackPop.setup({
       key: 'pk_test_d6b77c0b2c69324c5c80e54a5cefc4dc1458168f',
       email: details['email'],
