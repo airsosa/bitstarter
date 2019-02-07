@@ -44,7 +44,6 @@
 	}]);
 
 	app.controller('HomeCtrl', ['resource', '$scope', function(resource, $scope) {
-		console.log('This is the HomeCtrl');
 		$scope.resource = resource;
 		if (!$scope.resource.hasOwnProperty('locale')) {
 			$scope.resource.getLocale().then(
@@ -68,7 +67,6 @@
 
 	}])
 	.controller('SupportCtrl', ['$scope', '$http', 'resource', function($scope, $http, resource) {
-		console.log("This is support controller");
 		$scope.resource = resource;
 		if (!$scope.resource.hasOwnProperty('locale')) {
 			$scope.resource.getLocale().then(
@@ -117,7 +115,6 @@
 				country: $scope.resource.country_name
 			};
 
-			console.log(JSON.stringify(details));
 			var handler = PaystackPop.setup({
       key: 'pk_test_d6b77c0b2c69324c5c80e54a5cefc4dc1458168f',
       email: details['email'],
@@ -136,7 +133,6 @@
       callback: function(response){
 				console.log(JSON.stringify(details));
 				$http.post('/api/contribution', JSON.stringify(details)).then(function(res) {
-					console.log('success');
 					console.log(res.data);
 					//alert('success. transaction ref is ' + response.reference);
 					// redirect to thankyou page

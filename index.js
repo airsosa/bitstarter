@@ -20,3 +20,4 @@ app.listen(app.get('port'), function() {
 require('./lib/usercountry.js')(app);
 require('./lib/locale.js')(app);
 require('./lib/contribution.js')(app);
+require('./lib/dashboard')(app);
