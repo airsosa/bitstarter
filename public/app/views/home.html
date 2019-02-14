@@ -1,4 +1,4 @@
-<div class="container"> 
+<div class="container">
     <hgroup>
         <h1>Conzultrix Impact</h1>
         <h2 class="lead">Advancing Society by Empowering Women and Children in Science Technology, Engineering, and Mathematics. </h2>
@@ -26,17 +26,24 @@
                        different in horizontal and vertical layouts, illustrating
                        media queries.  -->
   		               <div class="linediv-l">
-  		                   <h3>1000</h3> <p>backers</p>
+  		                   <h3>{{ donations.backers }}</h3> <p>backers</p>
   		               </div>
   	            </div>
   	            <div class="col-lg-4">
   		              <div class="linediv-c">
-  		                  <h3>$6000</h3> <p>of $10,000</p>
-  		              </div>
+                      <div ng-show="resource.country_code == 'NG'">
+  		                  <h3>{{ donations.donations_NGN | currency : "&#8358;" : 0 }}</h3>
+                        <p>of {{ donations.target_NGN | currency : "&#8358;" : 0}}</p>
+                      </div>
+                      <div ng-hide="resource.country_code == 'NG'">
+                        <h3>{{ donations.donations_USD | currency : "$" : 0 }}</h3>
+                        <p>of {{ donations.target_USD | currency : "$" : 0}}</p>
+                      </div>
+  		             </div>
   	           </div>
   	          <div class="col-lg-4">
   	             <div class="linediv-r">
-  		               <h3>10</h3> <p>days left</p>
+  		               <h3>{{ donations.days_left }}</h3> <p>days left</p>
   	             </div>
   	         </div>
            </div>
@@ -46,8 +53,8 @@
 	    <!-- Bootstrap progress bar -->
 	    <!-- http://twitter.github.io/bootstrap/components.html#progress -->
 	    <div class="thermometer progress active" style="height: 20px;">
-        <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 60%"
-        aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+        <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: {{ progress }}%"
+        aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100"></div>
 	    </div>
 	  </div>
 	  <div class="col-6 offset-3 order">

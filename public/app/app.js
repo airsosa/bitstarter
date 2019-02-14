@@ -33,7 +33,6 @@
 
 	app.factory('resource', ['$http', function($http) {
 		return {
-			message: "I am data froma a service",
 			getLocale: function() {
 				return $http.get('/api/locale');
 			},
@@ -43,7 +42,7 @@
 		};
 	}]);
 
-	app.controller('HomeCtrl', ['resource', '$scope', function(resource, $scope) {
+	app.controller('HomeCtrl', ['resource', '$scope', '$http', function(resource, $scope, $http) {
 		$scope.resource = resource;
 		if (!$scope.resource.hasOwnProperty('locale')) {
 			$scope.resource.getLocale().then(
@@ -64,6 +63,13 @@
 				});
 		}
 
+		$http.get('/api/dashboard').then(function(res) {
+			$scope.donations = res.data;
+			if ($scope.donations.donations_USD > $scope.donations.target_USD)
+				$scope.progress = 100;
+			else
+				$scope.progress = Math.floor($scope.donations.donations_USD / $scope.donations.target_USD * 100);
+		})
 
 	}])
 	.controller('SupportCtrl', ['$scope', '$http', 'resource', function($scope, $http, resource) {
@@ -131,7 +137,6 @@
          ]
       },
       callback: function(response){
-				console.log(JSON.stringify(details));
 				$http.post('/api/contribution', JSON.stringify(details)).then(function(res) {
 					console.log(res.data);
 					//alert('success. transaction ref is ' + response.reference);
