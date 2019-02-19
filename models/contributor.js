@@ -2,8 +2,8 @@
 
 const mongoose = require('mongoose');
 
-if (!process.env.DB_URL) require('dotenv').config();
-mongoose.connect(process.env.DB_URL, {useNewUrlParser: true, useCreateIndex: true,});
+if (!process.env.MONGODB_URI) require('dotenv').config();
+mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true, useCreateIndex: true,});
 
 const contributorSchema = new mongoose.Schema( {
   fullname: String,
