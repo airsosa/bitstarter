@@ -65,6 +65,7 @@
 
 		$http.get('/api/dashboard').then(function(res) {
 			$scope.donations = res.data;
+			console.log($scope.donations);
 			if ($scope.donations.donations_USD > $scope.donations.target_USD)
 				$scope.progress = 100;
 			else
