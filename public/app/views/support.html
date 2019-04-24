@@ -24,8 +24,8 @@
   		<div class="form-group">
   			<label for="supportEmail" class="sr-only">Email</label>
   			<input type="email" class="form-control" name="email" placeholder="Enter email" id="supportEmail" ng-model="email"
-				ng-class="{ 'is-invalid' : donationForm.email.$invalid && !donationForm.email.$pristine}" required>
-				<p ng-show="donationForm.email.$invalid && !donationForm.email.$pristine" class="help-block">Enter a valid email.</p>
+				ng-class="{ 'is-invalid' : donationForm.email.$invalid && !donationForm.email.$pristine, 'is-valid' : donationForm.email.$valid}" required>
+				<div class="invalid-feedback">Enter a valid email.</div>
   		</div>
   		<hr>
   		<div class="donation-box border border-secondary p-3">
