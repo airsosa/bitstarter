@@ -29,6 +29,12 @@
 			restrict: 'E',
 			templateUrl: 'app/views/donation-un.html',
 		};
+	})
+	.directive('action', function() {
+		return {
+			restrict: 'E',
+			templateUrl: 'app/views/action.html',
+		}
 	});
 
 	app.factory('resource', ['$http', function($http) {
