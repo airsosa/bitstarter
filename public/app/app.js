@@ -13,6 +13,9 @@
 		.when('/contact', {
 			templateUrl: 'app/views/contact.html'
 		})
+		.when('/thanks', {
+			templateUrl: 'app/views/thanks.html'
+		})
 		.when('/support', {
 			templateUrl: 'app/views/support.html',
 			controler: 'SupportCtrl'
@@ -30,11 +33,23 @@
 			templateUrl: 'app/views/donation-un.html',
 		};
 	})
+	.directive('social', function() {
+		return {
+			restrict: 'E',
+			templateUrl: 'app/views/social.html',
+		};
+	})
+	.directive('faq', function(){
+		return {
+			restrict: 'E',
+			templateUrl: 'app/views/faq.html',
+		};
+	})
 	.directive('action', function() {
 		return {
 			restrict: 'E',
 			templateUrl: 'app/views/action.html',
-		}
+		};
 	});
 
 	app.factory('resource', ['$http', function($http) {
@@ -78,7 +93,7 @@
 		})
 
 	}])
-	.controller('SupportCtrl', ['$scope', '$http', 'resource', function($scope, $http, resource) {
+	.controller('SupportCtrl', ['$scope', '$http', 'resource', '$location', function($scope, $http, resource, $location) {
 		$scope.resource = resource;
 		if (!$scope.resource.hasOwnProperty('locale')) {
 			$scope.resource.getLocale().then(
@@ -144,9 +159,10 @@
       },
       callback: function(response){
 				$http.post('/api/contribution', JSON.stringify(details)).then(function(res) {
-					console.log(res.data);
+					//console.log(res.data);
 					//alert('success. transaction ref is ' + response.reference);
 					// redirect to thankyou page
+					$location.path('/thanks');
 				}, function(err) {
 					console.log(err);
 				});
