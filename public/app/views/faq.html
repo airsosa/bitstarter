@@ -3,6 +3,7 @@
  <div class="col-lg-10">
     <h3>FAQ</h3>
     <div class="accordion" id="accordionFAQ">
+
       <div class="card">
         <div class="card-header" id="headingOne">
           <h5 class="mb-0">
@@ -115,3 +116,12 @@
    </div>
  </div>
 </div>
+
+<script>
+  $("#accordionFAQ").on("hide.bs.collapse show.bs.collapse", e => {
+    $(e.target)
+      .prev()
+      .find("i:last-child")
+      .toggleClass("fa-minus fa-plus");
+  });
+</script>
