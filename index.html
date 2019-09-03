@@ -24,9 +24,6 @@
 
       /* Large desktop */
       @media (min-width: 992px) {
-        body {
-          padding-top: 60px;
-        }
         .linediv-l {
           border-right: 1px white solid;
         }
@@ -49,6 +46,10 @@
       }
 
       /* All form factors*/
+      
+      body {
+        padding-top: 60px;
+      }
       .accordion {
         margin: 10px auto;
         box-shadow: 0 0 1px rgba(0,0,0,0.1);
@@ -179,9 +180,9 @@
   	     </div>
       </nav>
     </header>
-
-    <div ng-view></div>
-
+    <main>
+      <div ng-view></div>
+    </main>
   <footer class="footer">
     <div class="container">
 	      <p>This work is licensed under the <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC By-SA 3.0</a>, without all the cruft that would otherwise be put at the bottom of the page.</p>
