@@ -16,6 +16,9 @@
 		.when('/thanks', {
 			templateUrl: 'app/views/thanks.html'
 		})
+		.when('/privacy', {
+			templateUrl: 'app/views/privacy.html'
+		})
 		.when('/support', {
 			templateUrl: 'app/views/support.html',
 			controler: 'SupportCtrl'
