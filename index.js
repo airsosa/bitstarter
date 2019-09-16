@@ -2,8 +2,8 @@ var express = require('express')
 var app = express()
 
 var sslRedirect = require('heroku-ssl-redirect');
-app.use(sslRedirect());
-//app.use(sslRedirect(['production'], 301));
+//app.use(sslRedirect());
+app.use(sslRedirect(['production'], 301));
 
 var fs = require('fs');
 var buffer = fs.readFileSync('index.html');
