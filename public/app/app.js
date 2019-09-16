@@ -146,7 +146,7 @@
 			};
 
 			var handler = PaystackPop.setup({
-      key: 'pk_test_d6b77c0b2c69324c5c80e54a5cefc4dc1458168f',
+      key: 'pk_live_5a8d62fe3deeba5a8942f900fc820dd24c91ff53',
       email: details['email'],
       amount: details['amount'],
 			currency: details['currency'],
@@ -162,9 +162,6 @@
       },
       callback: function(response){
 				$http.post('/api/contribution', JSON.stringify(details)).then(function(res) {
-					//console.log(res.data);
-					//alert('success. transaction ref is ' + response.reference);
-					// redirect to thankyou page
 					$location.path('/thanks');
 				}, function(err) {
 					console.log(err);
